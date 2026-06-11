@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    background:#d9a8ad;
+    font-family:Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+img{
+    width:220px;
+    border-radius:10px;
+}
+
+h1{
+    font-size:42px;
+    margin:20px 0 10px;
+}
+
+p{
+    font-size:18px;
+    color:#333;
+}
+
+.buttons{
+    margin-top:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    font-size:20px;
+    cursor:pointer;
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+#yes{
+    margin-right:15px;
+}
+
+#no{
+    position:relative;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img id="gif"
+src="https://media.tenor.com/6jM3Y9k5QWgAAAAC/cute-cat.gif">
+
+<h1 id="title">Will You Be My Girlfriend? ❤️</h1>
+
+<p id="text">
+You make every day special for me 🥺
+</p>
+
+<div class="buttons">
+<button id="yes">Yes ❤️</button>
+<button id="no">No 😭</button>
+</div>
+
+</div>
+
+<script>
+
+let count = 0;
+
+const gifs = [
+"https://media.tenor.com/6jM3Y9k5QWgAAAAC/cute-cat.gif",
+"https://media.tenor.com/X0XQnVn5M6EAAAAC/cute-sad.gif",
+"https://media.tenor.com/5g4K5kP5s6UAAAAC/panda-cute.gif",
+"https://media.tenor.com/4v7Yw6vX7yEAAAAC/cute-love.gif"
+];
+
+const messages = [
+{
+title:"Hannah 🥺💖",
+text:"Aryan has something special to ask you..."
+},
+{
+title:"Ek aur baar soch lo Hannah 😭",
+text:"Please mujhe ek chance do ❤️"
+},
+{
+title:"Please think again 🥺",
+text:"Itni jaldi no mat bolo..."
+},
+{
+title:"Hannah pleaseee 😭💕",
+text:"Aryan really likes you ❤️"
+}
+];
+
+document.getElementById("title").innerText =
+"Will You Be My Girlfriend Hannah? ❤️";
+
+document.getElementById("text").innerText =
+"You make every day special for Aryan 🥺";
+
+document.getElementById("yes").onclick = function(){
+
+document.body.innerHTML = `
+<div style="text-align:center;padding:20px;">
+<img src="https://media.tenor.com/4v7Yw6vX7yEAAAAC/cute-love.gif"
+style="width:250px;border-radius:15px;">
+<h1 style="font-size:55px;">YAYYY ❤️🎉</h1>
+<h2>Hannah said YES 💖</h2>
+<h3>You made Aryan the happiest person alive 🌹</h3>
+<p style="font-size:24px;">I love you Hannah ❤️</p>
+</div>`;
+};
+
+document.getElementById("no").onclick = function(){
+
+if(count < messages.length){
+
+document.getElementById("title").innerText =
+messages[count].title;
+
+document.getElementById("text").innerText =
+messages[count].text;
+
+document.getElementById("gif").src =
+gifs[count];
+
+count++;
+
+}else{
+
+let btn = document.getElementById("no");
+
+let x = Math.random() *
+(window.innerWidth - 120);
+
+let y = Math.random() *
+(window.innerHeight - 80);
+
+btn.style.position = "fixed";
+btn.style.left = x + "px";
+btn.style.top = y + "px";
+}
+};
+
+document.getElementById("no").addEventListener("mouseover",function(){
+
+if(count >= 2){
+
+let x = Math.random() *
+(window.innerWidth - 120);
+
+let y = Math.random() *
+(window.innerHeight - 80);
+
+this.style.position="fixed";
+this.style.left=x+"px";
+this.style.top=y+"px";
+}
+});
+</script>
+
+</body>
+</html>
